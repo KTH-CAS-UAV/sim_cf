@@ -67,8 +67,8 @@
     noise_mean="0.0"
     noise_stddev="0.007"
     enable_visual="1" >
-    <box size="0.015 0.02 0.03" />
-    <origin xyz="0.01 0 0.03" rpy="0 0 0" />
+    <box size="0.02 0.02 0.02" />
+    <origin xyz="0.01 0 0.02" rpy="0 0 0" />
   </xacro:camera_macro>
 
   <!-- MPU-6500 IMU obtained from  experiments and match datasheets-->
