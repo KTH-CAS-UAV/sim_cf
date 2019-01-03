@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <cstdint>
-#include "crazyflie_cpp/crtp.h"
+#include "crazyflie_comm/crtp.h"
 
 #define CRTP_PORT_SETPOINT_SIM 0x09
 

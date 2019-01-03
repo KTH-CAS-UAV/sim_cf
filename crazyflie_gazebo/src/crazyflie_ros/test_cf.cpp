@@ -1,9 +1,9 @@
 #include <iostream>
 #include <stdio.h>
 
-#include "crazyflie_cpp/Crazyradio.h"
-#include "crazyflie_cpp/crtp.h"
-#include "crazyflie_cpp/Crazyflie.h"
+#include "crazyflie_comm/Crazyradio.h"
+#include "crazyflie_comm/crtp.h"
+#include "crazyflie_comm/Crazyflie.h"
 
 // #include "crazyflie_ros/CrazyflieROS.h"
 

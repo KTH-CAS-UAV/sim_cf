@@ -24,9 +24,9 @@
 #include "crazyflie_gazebo/Position.h"
 #include "crazyflie_gazebo/crtpPacket.h"
 
-#include "crazyflie_cpp/Crazyradio.h"
-#include "crazyflie_cpp/crtp.h"
-#include "crazyflie_cpp/Crazyflie.h"
+#include "crazyflie_comm/Crazyradio.h"
+#include "crazyflie_comm/crtp.h"
+#include "crazyflie_comm/Crazyflie.h"
 
 #include "std_srvs/Empty.h"
 #include "std_msgs/Empty.h"

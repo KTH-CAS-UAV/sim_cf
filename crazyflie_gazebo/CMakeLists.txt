@@ -53,7 +53,7 @@ link_directories(${GAZEBO_LIBRARY_DIRS})
 # ====================================== CF COMMUNICATION LIB =================================== #
 # =============================================================================================== #
 set (CRAZYFLIE_COMM_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/crazyflie_comm/include)
-set (CRAZYFLIE_COMM_LIBRARY crazyflie_cpp)
+set (CRAZYFLIE_COMM_LIBRARY crazyflie_comm)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/external/crazyflie_comm)
 include_directories(
   ${CRAZYFLIE_COMM_INCLUDE_DIR}
