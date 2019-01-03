@@ -52,6 +52,25 @@
         />
   </xacro:if>
 
+  <!-- Camera -->
+  <xacro:camera_macro
+    namespace="${namespace}"
+    parent_link="base_link"
+    camera_suffix="camera"
+    frame_rate="30.0"
+    horizontal_fov="1.3962634"
+    image_width="800"
+    image_height="800"
+    image_format="R8G8B8"
+    min_distance="0.2"
+    max_distance="300"
+    noise_mean="0.0"
+    noise_stddev="0.007"
+    enable_visual="1" >
+    <box size="0.015 0.02 0.03" />
+    <origin xyz="0.01 0 0.03" rpy="0 0 0" />
+  </xacro:camera_macro>
+
   <!-- MPU-6500 IMU obtained from  experiments and match datasheets-->
   <xacro:imu_plugin_macro
     namespace="${namespace}"
