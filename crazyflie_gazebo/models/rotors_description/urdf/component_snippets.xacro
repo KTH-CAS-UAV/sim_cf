@@ -79,7 +79,7 @@
       <child link="${namespace}/camera_${camera_suffix}_link" />
     </joint>
     <gazebo reference="${namespace}/camera_${camera_suffix}_link">
-      <sensor type="camera" name="${namespace}_camera_${camera_suffix}">
+      <sensor type="wideanglecamera" name="${namespace}_camera_${camera_suffix}">
         <update_rate>${frame_rate}</update_rate>
         <camera name="head">
           <horizontal_fov>${horizontal_fov}</horizontal_fov>
@@ -100,6 +100,14 @@
             <mean>${noise_mean}</mean>
             <stddev>${noise_stddev}</stddev>
           </noise>
+          <!-- http://sdformat.org/spec?ver=1.6&elem=sensor#lens_type -->
+          <!-- https://en.wikipedia.org/wiki/Fisheye_lens#Mapping_function -->
+          <lens>
+            <type>stereographic</type> <!-- gnomonical, stereographic, equidistant, equisolid_angle, orthographic, custom -->
+            <scale_to_hfov>false</scale_to_hfov>
+            <cutoff_angle>${horizontal_fov}</cutoff_angle>
+            <env_texture_size>512</env_texture_size>
+          </lens>
         </camera>
         <plugin name="${namespace}_camera_${camera_suffix}_controller" filename="libgazebo_ros_camera.so">
           <robotNamespace>${namespace}</robotNamespace>

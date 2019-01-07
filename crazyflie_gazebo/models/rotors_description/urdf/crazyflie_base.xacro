@@ -57,15 +57,15 @@
     namespace="${namespace}"
     parent_link="base_link"
     camera_suffix="camera"
-    frame_rate="30.0"
-    horizontal_fov="1.3962634"
-    image_width="800"
-    image_height="800"
+    frame_rate="60.0"
+    horizontal_fov="1.83259571"
+    image_width="640"
+    image_height="480"
     image_format="R8G8B8"
     min_distance="0.2"
     max_distance="300"
     noise_mean="0.0"
-    noise_stddev="0.007"
+    noise_stddev="0.01"
     enable_visual="1" >
     <box size="0.02 0.02 0.02" />
     <origin xyz="0.01 0 0.02" rpy="0 0 0" />
