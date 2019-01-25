@@ -381,7 +381,7 @@ link_libraries(mav_msgs)
 
 add_library(rotors_gazebo_ros_interface_plugin SHARED src/gazebo_ros_interface_plugin.cpp)
 target_link_libraries(rotors_gazebo_ros_interface_plugin ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
-add_dependencies(rotors_gazebo_ros_interface_plugin ${catkin_EXPORTED_TARGETS})
+add_dependencies(rotors_gazebo_ros_interface_plugin ${catkin_EXPORTED_TARGETS} crazyflie_gazebo_generate_messages_cpp)
 
 add_library(rotors_gazebo_odometry_plugin SHARED src/gazebo_odometry_plugin.cpp)
 target_link_libraries(rotors_gazebo_odometry_plugin ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} ${OpenCV_LIBRARIES})
