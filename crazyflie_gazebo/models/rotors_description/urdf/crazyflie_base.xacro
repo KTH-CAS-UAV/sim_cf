@@ -30,7 +30,15 @@
   <xacro:property name="enable_logging_magnetic_field" value="$(arg enable_logging_magnetic_field)" />
   <xacro:property name="use_ros_time" value="$(arg use_ros_time)" />
   <xacro:property name="enable_parameters" value="$(arg enable_parameters)" />
+
   <xacro:property name="enable_camera" value="$(arg enable_camera)" />
+  <xacro:property name="camera_fps" value="$(arg camera_fps)" />
+  <xacro:property name="camera_hfov" value="$(arg camera_hfov)" />
+  <xacro:property name="camera_image_width" value="$(arg camera_image_width)" />
+  <xacro:property name="camera_image_height" value="$(arg camera_image_height)" />
+  <xacro:property name="camera_min_distance" value="$(arg camera_min_distance)" />
+  <xacro:property name="camera_max_distance" value="$(arg camera_max_distance)" />
+  <xacro:property name="camera_noise_stddev" value="$(arg camera_noise_stddev)" />
 
   <xacro:property name="enable_ground_truth" value="$(arg enable_ground_truth)" />
 
@@ -60,15 +68,15 @@
       namespace="${namespace}"
       parent_link="base_link"
       camera_suffix="camera"
-      frame_rate="60.0"
-      horizontal_fov="1.83259571"
-      image_width="640"
-      image_height="480"
+      frame_rate="$(arg camera_fps)"
+      horizontal_fov="$(arg camera_hfov)"
+      image_width="$(arg camera_image_width)"
+      image_height="$(arg camera_image_height)"
       image_format="R8G8B8"
-      min_distance="0.2"
-      max_distance="300"
+      min_distance="$(arg camera_min_distance)"
+      max_distance="$(arg camera_max_distance)"
       noise_mean="0.0"
-      noise_stddev="0.01"
+      noise_stddev="$(arg camera_noise_stddev)"
       enable_visual="1" >
       <box size="0.02 0.02 0.02" />
       <origin xyz="0.01 0 0.02" rpy="0 0 0" />
