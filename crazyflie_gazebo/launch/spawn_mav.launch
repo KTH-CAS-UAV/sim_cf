@@ -24,6 +24,7 @@
   <arg name="enable_logging_pressure" default="true" />
   <arg name="enable_logging_battery" default="true" />
   <arg name="enable_logging_packets" default="true" />
+  <arg name="enable_camera" default="true" />
 
   <arg name="color_prop_front" default="Blue" />
   <arg name="color_prop_back" default="Red" />
@@ -51,6 +52,7 @@
     enable_logging_pressure:=$(arg enable_logging_pressure)
     enable_logging_battery:=$(arg enable_logging_battery)
     enable_logging_packets:=$(arg enable_logging_packets)
+    enable_camera:=$(arg enable_camera)
     color_prop_back:=$(arg color_prop_back)
     color_prop_front:=$(arg color_prop_front)
     namespace:=$(arg tf_prefix) --inorder"

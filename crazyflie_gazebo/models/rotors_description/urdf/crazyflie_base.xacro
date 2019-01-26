@@ -30,10 +30,12 @@
   <xacro:property name="enable_logging_magnetic_field" value="$(arg enable_logging_magnetic_field)" />
   <xacro:property name="use_ros_time" value="$(arg use_ros_time)" />
   <xacro:property name="enable_parameters" value="$(arg enable_parameters)" />
+  <xacro:property name="enable_camera" value="$(arg enable_camera)" />
 
   <xacro:property name="enable_ground_truth" value="$(arg enable_ground_truth)" />
 
   <xacro:include filename="$(arg rotors_description_dir)/urdf/component_snippets.xacro"/>
+
 
   <!-- Instantiate crazyflie "mechanics" -->
   <xacro:include filename="$(arg rotors_description_dir)/urdf/crazyflie.xacro" />
@@ -53,23 +55,25 @@
   </xacro:if>
 
   <!-- Camera -->
-  <xacro:camera_macro
-    namespace="${namespace}"
-    parent_link="base_link"
-    camera_suffix="camera"
-    frame_rate="60.0"
-    horizontal_fov="1.83259571"
-    image_width="640"
-    image_height="480"
-    image_format="R8G8B8"
-    min_distance="0.2"
-    max_distance="300"
-    noise_mean="0.0"
-    noise_stddev="0.01"
-    enable_visual="1" >
-    <box size="0.02 0.02 0.02" />
-    <origin xyz="0.01 0 0.02" rpy="0 0 0" />
-  </xacro:camera_macro>
+  <xacro:if value="$(arg enable_camera)">
+    <xacro:camera_macro
+      namespace="${namespace}"
+      parent_link="base_link"
+      camera_suffix="camera"
+      frame_rate="60.0"
+      horizontal_fov="1.83259571"
+      image_width="640"
+      image_height="480"
+      image_format="R8G8B8"
+      min_distance="0.2"
+      max_distance="300"
+      noise_mean="0.0"
+      noise_stddev="0.01"
+      enable_visual="1" >
+      <box size="0.02 0.02 0.02" />
+      <origin xyz="0.01 0 0.02" rpy="0 0 0" />
+    </xacro:camera_macro>
+  </xacro:if>
 
   <!-- MPU-6500 IMU obtained from  experiments and match datasheets-->
   <xacro:imu_plugin_macro
