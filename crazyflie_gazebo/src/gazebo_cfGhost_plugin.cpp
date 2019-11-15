@@ -8,7 +8,7 @@ GZ_REGISTER_MODEL_PLUGIN(GazeboCfGHostPlugin);
 
 GazeboCfGHostPlugin::~GazeboCfGHostPlugin()
 {
-	event::Events::DisconnectWorldUpdateBegin(updateConnection_);
+	updateConnection_.reset();
 }
 
 void GazeboCfGHostPlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)

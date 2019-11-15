@@ -30,7 +30,7 @@ GazeboPressurePlugin::GazeboPressurePlugin()
 }
 
 GazeboPressurePlugin::~GazeboPressurePlugin() {
-  event::Events::DisconnectWorldUpdateBegin(updateConnection_);
+  updateConnection_.reset();
 }
 
 void GazeboPressurePlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf) {
@@ -112,14 +112,14 @@ void GazeboPressurePlugin::OnUpdate(const common::UpdateInfo& _info) {
     pubs_and_subs_created_ = true;
   }
 
-  common::Time current_time = world_->GetSimTime();
+  common::Time current_time = world_->SimTime();
   double dt = (current_time - last_time_).Double();
 
   if (dt < pressure_delay_)
     return ;
 
   // Get the current geometric height.
-  double height_geometric_m = ref_alt_ + model_->GetWorldPose().pos.z;
+  double height_geometric_m = ref_alt_ + model_->WorldPose().Pos().Z();
 
   // Compute the geopotential height.
   double height_geopotential_m = kEarthRadiusMeters * height_geometric_m /

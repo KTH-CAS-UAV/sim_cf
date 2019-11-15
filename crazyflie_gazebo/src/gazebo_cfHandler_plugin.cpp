@@ -6,7 +6,7 @@ namespace gazebo {
 GZ_REGISTER_MODEL_PLUGIN(GazeboCfHandler);
 
 GazeboCfHandler::~GazeboCfHandler(){
-	event::Events::DisconnectWorldUpdateBegin(updateConnection_);
+	updateConnection_.reset();
 	isPluginOn = false;
 	for(uint8_t i=0 ; i<nbQuads ; i++){
 		socketInit[i] = false;
