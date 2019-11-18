@@ -6,6 +6,7 @@
   <arg name="x" default="0.0"/>
   <arg name="y" default="0.0"/>
   <arg name="z" default="0.03"/>
+  <arg name="yaw" default="0" />
   <arg name="enable_ground_truth" default="false"/>
   <arg name="log_file" default="$(arg mav_name)"/>
   <arg name="enable_wind" default="false"/>
@@ -80,6 +81,7 @@
          -x $(arg x)
          -y $(arg y)
          -z $(arg z)
+         -Y $(arg yaw)
          -model $(arg tf_prefix)"
    respawn="false" output="screen">
   </node>
