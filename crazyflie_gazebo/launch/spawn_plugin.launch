@@ -6,6 +6,7 @@
   <arg name="x" default="0.0"/>
   <arg name="y" default="0.0"/>
   <arg name="z" default="0.3"/>
+  <arg name="yaw" default="0.0"/>
   <arg name="rotors_description_dir" default="$(find crazyflie_gazebo)/models/rotors_description"/>
 
   <arg name="enable_logging" default="true" />
@@ -50,6 +51,7 @@
          -x $(arg x)
          -y $(arg y)
          -z $(arg z)
+         -Y $(arg yaw)
          -model $(arg plugin_name)"
    respawn="false" output="screen">
   </node>
