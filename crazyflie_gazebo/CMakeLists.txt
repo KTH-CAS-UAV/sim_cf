@@ -276,10 +276,19 @@ set(enable_logging_battery "false")
 set(enable_parameters "true")
 set(is_hitl "false")
 
+set(enable_camera "true")
+set(camera_fps "60")
+set(camera_hfov "1.8326")
+set(camera_image_width "640")
+set(camera_image_height "480")
+set(camera_min_distance "0.2")
+set(camera_max_distance "300")
+set(camera_noise_stddev "0.01")
+
 add_custom_command(OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/models/crazyflie/crazyflie.sdf
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
   COMMAND rm -f ${CMAKE_CURRENT_SOURCE_DIR}/models/crazyflie/crazyflie.sdf
-  COMMAND ${PYTHON_EXECUTABLE} ${scripts_dir}/xacro.py -o  ${rotors_description_dir}/urdf/crazyflie_base.urdf  ${rotors_description_dir}/urdf/crazyflie_base.xacro namespace:=${namespace} enable_wind:=${enable_wind} is_hitl:=${is_hitl} enable_parameters:=${enable_parameters} enable_logging:=${enable_logging} uri:=${uri} enable_ground_truth:=${enable_ground_truth} color_prop_front:=${color_prop_front} color_prop_back:=${color_prop_back} rotors_description_dir:=${rotors_description_dir} use_ros_time:=${use_ros_time} roll_trim:=${roll_trim} pitch_trim:=${pitch_trim} enable_logging_battery:=${enable_logging_battery} enable_logging_pressure:=${enable_logging_pressure} enable_logging_temperature:=${enable_logging_temperature} enable_logging_imu:=${enable_logging_imu} enable_logging_packets:=${enable_logging_packets} enable_logging_magnetic_field:=${enable_logging_magnetic_field}
+  COMMAND ${PYTHON_EXECUTABLE} ${scripts_dir}/xacro.py -o  ${rotors_description_dir}/urdf/crazyflie_base.urdf  ${rotors_description_dir}/urdf/crazyflie_base.xacro namespace:=${namespace} enable_wind:=${enable_wind} is_hitl:=${is_hitl} enable_parameters:=${enable_parameters} enable_logging:=${enable_logging} uri:=${uri} enable_ground_truth:=${enable_ground_truth} color_prop_front:=${color_prop_front} color_prop_back:=${color_prop_back} rotors_description_dir:=${rotors_description_dir} use_ros_time:=${use_ros_time} roll_trim:=${roll_trim} pitch_trim:=${pitch_trim} enable_logging_battery:=${enable_logging_battery} enable_logging_pressure:=${enable_logging_pressure} enable_logging_temperature:=${enable_logging_temperature} enable_logging_imu:=${enable_logging_imu} enable_logging_packets:=${enable_logging_packets} enable_logging_magnetic_field:=${enable_logging_magnetic_field} enable_camera:=${enable_camera} camera_fps:=${camera_fps} camera_hfov:=${camera_hfov} camera_image_width:=${camera_image_width} camera_image_height:=${camera_image_height} camera_min_distance:=${camera_min_distance} camera_max_distance:=${camera_max_distance} camera_noise_stddev:=${camera_noise_stddev}
   COMMAND gz sdf -p  ${rotors_description_dir}/urdf/crazyflie_base.urdf >> ${CMAKE_CURRENT_SOURCE_DIR}/models/crazyflie/crazyflie.sdf
   COMMAND rm -f ${rotors_description_dir}/urdf/crazyflie_base.urdf
   DEPENDS ${rotors_description_dir}/urdf/crazyflie.xacro
